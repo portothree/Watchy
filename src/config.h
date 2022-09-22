@@ -16,7 +16,8 @@
 
 
 #if !defined(ARDUINO_WATCHY_V10) && !defined(ARDUINO_WATCHY_V15) && !defined(ARDUINO_WATCHY_V20)
-    #define ARDUINO_WATCHY_V15
+    #warning Hardware revision is not defined at the project level. Using hard-coded value
+    #define ARDUINO_WATCHY_V20
 #endif
 
 #if defined (ARDUINO_WATCHY_V10)
@@ -30,9 +31,9 @@
     #define UP_BTN_MASK  GPIO_SEL_32
     #define RTC_TYPE 2 //PCF8563
 #elif defined (ARDUINO_WATCHY_V20)
-    #define UP_BTN_PIN 35
+    #define UP_BTN_PIN 32
     #define BATT_ADC_PIN 34
-    #define UP_BTN_MASK  GPIO_SEL_35
+    #define UP_BTN_MASK  GPIO_SEL_32
     #define RTC_TYPE 2 //PCF8563
 #endif
 
