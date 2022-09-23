@@ -47,13 +47,12 @@ void WatchyRTC::read(tmElements_t &tm) {
   if (rtcType == DS3231) {
     rtc_ds.read(tm);
   } else {
-    rtc_pcf.getDateTime();
     tm.Year  = y2kYearToTm(rtc_pcf.getYear());
     tm.Month = rtc_pcf.getMonth();
     tm.Day   = rtc_pcf.getDay();
     tm.Wday =
-        rtc_pcf.getWeekday() + 1; // TimeLib & DS3231 has Wday range of 1-7, but
-                                  // PCF8563 stores day of week in 0-6 range
+    rtc_pcf.getWeekday() + 1; // TimeLib & DS3231 has Wday range of 1-7, but
+                              // PCF8563 stores day of week in 0-6 range
     tm.Hour   = rtc_pcf.getHour();
     tm.Minute = rtc_pcf.getMinute();
     tm.Second = rtc_pcf.getSecond();
